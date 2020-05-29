@@ -3,9 +3,8 @@ import React from "react";
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.getResult = this.getResult.bind(this)
     this.state = {
       postToken: null,
       barcode: "",
@@ -33,12 +32,7 @@ class App extends React.Component {
       .then(data => this.setState({ postToken: data.token }));
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ barcode: this.element.value });
-  }
-
-  render() {
+  getResult(){
     // POST request using fetch with set headers and body
     const requestJwt = {
       method: "POST",
@@ -58,7 +52,15 @@ class App extends React.Component {
       .then(result => this.setState({ data: result }));
     // .then(result => this.setState({data:result}))
     // .then(result => console.log(result))
+  }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({ barcode: this.element.value });
+    this.getResult()
+  }
+
+  render() {
     const { postToken } = this.state;
     const { barcode } = this.state;
     const { data } = this.state;
