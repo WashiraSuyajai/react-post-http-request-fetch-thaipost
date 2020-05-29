@@ -58,6 +58,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({ barcode: this.element.value });
     this.getResult()
+    this.element.value = null
   }
 
   render() {
@@ -91,7 +92,7 @@ class App extends React.Component {
             type="submit"
             value="Submit"
           />
-          <div className="card-body">Returned barcode : {barcode}</div>
+          <div className="card-body">Your Track : {barcode}</div>
         </form>
         {/* https://stackoverflow.com/questions/44767821/react-js-how-to-set-state-on-form-submit */}
 
