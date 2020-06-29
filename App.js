@@ -68,10 +68,6 @@ class App extends React.Component {
     return (
       <div>
         <div className="container card text-center m-3">
-          <h5 className="card-header">
-            POST Request with Set Headers to require JWT Token
-          </h5>
-          <div className="card-body">Returned JWT : {postToken}</div>
         </div>
         {/* Form to enter track barcode which require data */}
         <form
